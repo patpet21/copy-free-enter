@@ -1,0 +1,20 @@
+{
+  "$id": "document_request.schema.json",
+  "type": "object",
+  "properties": {
+    "documentType": {
+      "type": "string",
+      "enum": ["spa", "subscription_agreement", "investor_factsheet", "simulation_report", "business_plan_report", "ppm", "term_sheet"]
+    },
+    "projectId": { "type": "string" },
+    "language": { "type": "string", "enum": ["en", "it", "de", "es", "fr"], "default": "en" },
+    "tone": { "type": "string", "enum": ["formal", "marketing", "technical"], "default": "formal" },
+    "jurisdictionOverride": { "type": "string" },
+    "includeSections": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "customContext": { "type": "string" }
+  },
+  "required": ["documentType", "projectId"]
+}

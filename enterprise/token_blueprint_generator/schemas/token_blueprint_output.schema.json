@@ -1,0 +1,38 @@
+{
+  "$id": "token_blueprint_output.schema.json",
+  "type": "object",
+  "properties": {
+    "tokenType": { "type": "string", "enum": ["Security", "Revenue Share", "Membership", "Hybrid", "Debt"] },
+    "totalSupply": { "type": "number" },
+    "tokenPrice": { "type": "number" },
+    "hardCap": { "type": "number" },
+    "minInvestmentTicket": { "type": "number" },
+    "distributionPlan": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "category": { "type": "string" },
+          "percentage": { "type": "number" },
+          "tokenAmount": { "type": "number" },
+          "lockupPeriodMonths": { "type": "number" },
+          "vestingType": { "type": "string" },
+          "description": { "type": "string" }
+        }
+      }
+    },
+    "economicRights": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "governanceRights": {
+        "type": "array",
+        "items": { "type": "string" }
+    },
+    "regulatoryFlags": {
+      "type": "array",
+      "items": { "type": "string" }
+    }
+  },
+  "required": ["tokenType", "totalSupply", "tokenPrice", "distributionPlan"]
+}

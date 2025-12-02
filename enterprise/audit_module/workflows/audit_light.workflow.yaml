@@ -1,0 +1,36 @@
+name: Audit Light Scan
+description: Rapid risk assessment of the project configuration.
+version: 1.0
+
+inputs:
+  projectId: string
+
+steps:
+  - id: gather_data
+    type: parallel
+    actions:
+      - handler: clientProjects.getProject
+      - handler: spvService.getSpvDesign
+      - handler: tokenBlueprintService.getBlueprint
+
+  - id: generate_checklist
+    type: prompt
+    source: prompts/checklist/audit_checklist.generate.prompt.md
+    params: { project: $gather_data.project, jurisdiction: $gather_data.spv.jurisdiction }
+
+  - id: score_risk
+    type: prompt
+    source: prompts/scoring/audit_risk_scoring.prompt.md
+    params: { checks: $generate_checklist.output }
+
+  - id: generate_remediation
+    type: prompt
+    source: prompts/remediation/audit_remediation_plan.prompt.md
+    params: { failures: $generate_checklist.failures }
+
+  - id: finalize_report
+    type: function
+    handler: auditService.saveReport
+    params:
+      score: $score_risk.output
+      remediation: $generate_remediation.output

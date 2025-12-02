@@ -1,0 +1,23 @@
+{
+  "$id": "risk_score.schema.json",
+  "type": "object",
+  "properties": {
+    "scoreValue": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 100
+    },
+    "label": {
+      "type": "string",
+      "enum": ["Low Risk", "Moderate Risk", "High Risk", "Critical Risk"]
+    },
+    "area": {
+      "type": "string",
+      "enum": ["global", "legal", "market", "financial", "ops"]
+    },
+    "explanation": {
+      "type": "string"
+    }
+  },
+  "required": ["scoreValue", "label", "area"]
+}

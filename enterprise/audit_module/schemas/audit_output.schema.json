@@ -1,0 +1,37 @@
+{
+  "$id": "audit_output.schema.json",
+  "type": "object",
+  "properties": {
+    "checks": {
+      "type": "array",
+      "items": {
+        "$ref": "audit_check.schema.json"
+      }
+    },
+    "globalRiskScore": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 100
+    },
+    "riskByArea": {
+      "type": "object",
+      "properties": {
+        "legalRegulatory": { "type": "number" },
+        "market": { "type": "number" },
+        "financial": { "type": "number" },
+        "operational": { "type": "number" }
+      }
+    },
+    "mainFindings": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "complianceGaps": {
+      "type": "array",
+      "items": {
+        "$ref": "compliance_gap.schema.json"
+      }
+    }
+  },
+  "required": ["checks", "globalRiskScore", "riskByArea", "mainFindings"]
+}

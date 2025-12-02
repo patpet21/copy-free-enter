@@ -1,0 +1,29 @@
+name: Generate Simulation Report
+description: Compiles all project data into a master report.
+version: 1.0
+
+inputs:
+  projectId: string
+
+steps:
+  - id: gather_data
+    type: parallel
+    actions:
+      - handler: clientProjects.getProject
+      - handler: spvService.getSpvDesign
+      - handler: valuationService.getValuation
+      - handler: tokenBlueprintService.getBlueprint
+      - handler: auditService.getAuditResults
+
+  - id: generate_doc
+    type: function
+    handler: docMergeService.generateDocument
+    params:
+      docType: simulation_report
+      projectContext: $gather_data
+
+  - id: save_to_storage
+    type: function
+    handler: documentStorage.save
+    params:
+      doc: $generate_doc.result

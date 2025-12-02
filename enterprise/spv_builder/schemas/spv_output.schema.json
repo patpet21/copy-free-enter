@@ -1,0 +1,46 @@
+{
+  "$id": "spv_output.schema.json",
+  "type": "object",
+  "properties": {
+    "jurisdictionCode": { "type": "string" },
+    "legalForm": { "type": "string" },
+    "entityNameSuggestion": { "type": "string" },
+    "shareClasses": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "className": { "type": "string" },
+          "description": { "type": "string" },
+          "votingRights": { "type": "string" },
+          "economicRights": { "type": "string" },
+          "equityPercentage": { "type": "string" }
+        }
+      }
+    },
+    "roles": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "roleName": { "type": "string" },
+          "whoHoldsIt": { "type": "string" },
+          "mainDuties": { "type": "string" }
+        }
+      }
+    },
+    "basicInvestorRights": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "taxNotes": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "regulatoryNotes": {
+      "type": "array",
+      "items": { "type": "string" }
+    }
+  },
+  "required": ["jurisdictionCode", "legalForm", "shareClasses"]
+}

@@ -1,0 +1,33 @@
+{
+  "$id": "risk_factors.schema.json",
+  "type": "object",
+  "description": "Assessment of risks influencing the valuation.",
+  "properties": {
+    "projectId": { "type": "string" },
+    "factors": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "category": { 
+            "type": "string", 
+            "enum": ["Market", "Regulatory", "Physical", "Financial", "Operational"] 
+          },
+          "riskName": { "type": "string" },
+          "description": { "type": "string" },
+          "impact": { "type": "string", "enum": ["Low", "Medium", "High", "Critical"] },
+          "probability": { "type": "string", "enum": ["Unlikely", "Possible", "Likely"] },
+          "mitigationSuggestion": { "type": "string" }
+        },
+        "required": ["category", "riskName", "impact"]
+      }
+    },
+    "overallRiskScore": { 
+      "type": "number", 
+      "minimum": 0, 
+      "maximum": 100,
+      "description": "Aggregated risk score (0 = Safe, 100 = High Risk)"
+    }
+  },
+  "required": ["projectId", "factors"]
+}

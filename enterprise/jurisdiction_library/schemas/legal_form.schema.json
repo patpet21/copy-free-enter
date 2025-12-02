@@ -1,0 +1,9 @@
+
+{
+  "type": "object",
+  "properties": {
+    "formName": { "type": "string" },
+    "requirements": { "type": "array" }
+  },
+  "status": "coming_soon"
+}

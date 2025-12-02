@@ -1,0 +1,16 @@
+
+{
+  "$id": "deployment_request.schema.json",
+  "type": "object",
+  "properties": {
+    "providerId": { "type": "string" },
+    "assetData": { "type": "object" },
+    "tokenParams": { "type": "object" },
+    "complianceConfig": { "type": "object" },
+    "webhooks": {
+        "success": { "type": "string" },
+        "failure": { "type": "string" }
+    }
+  },
+  "required": ["providerId", "assetData", "tokenParams"]
+}

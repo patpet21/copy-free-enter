@@ -1,0 +1,51 @@
+
+name: SPV Wizard Orchestrator
+description: Orchestrates the creation of a Special Purpose Vehicle structure for a client project.
+version: 1.0
+
+inputs:
+  projectId: string
+  jurisdictionCode: string
+  legalFormId: string (optional preference)
+
+steps:
+  - id: load_context
+    type: parallel
+    actions:
+      - id: load_project
+        handler: clientProjects.getProject
+        params: { id: $inputs.projectId }
+      - id: load_jurisdiction
+        handler: jurisdictionLibrary.getJurisdiction
+        params: { code: $inputs.jurisdictionCode }
+
+  - id: generate_proposal
+    type: function
+    handler: spvService.runSpvWizardStep
+    params:
+      project: $load_project.result
+      jurisdiction: $load_jurisdiction.result
+      preference: $inputs.legalFormId
+    
+  - id: human_review
+    type: user_interaction
+    ui_component: SPVWizard
+    input_data: $generate_proposal.result
+    allowed_edits:
+      - entityNameSuggestion
+      - shareClasses.equityPercentage
+      - governance.boardComposition
+    
+  - id: finalize_structure
+    type: function
+    handler: spvService.saveSpvDesign
+    params:
+      design: $human_review.output
+      status: "finalized"
+
+  - id: update_project_state
+    type: function
+    handler: clientProjects.attachSpv
+    params:
+      projectId: $inputs.projectId
+      spvId: $finalize_structure.id

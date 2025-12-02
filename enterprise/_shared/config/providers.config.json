@@ -1,0 +1,51 @@
+
+[
+  {
+    "id": "legal-us-stripe-atlas",
+    "type": "legal_incorporation",
+    "name": "Atlas API (Delaware)",
+    "regions": ["US-DE", "US-WY"],
+    "description": "Automated incorporation for Delaware C-Corps and LLCs. Best for speed.",
+    "pricing": { "min": 500, "max": 500, "currency": "USD" },
+    "avgTimeDays": 2,
+    "connectionType": "API"
+  },
+  {
+    "id": "legal-it-notary-milano",
+    "type": "legal_incorporation",
+    "name": "Studio Notarile Associato Milano",
+    "regions": ["IT"],
+    "description": "Premium notary service specialized in crypto-asset SPVs and Crowdfunding.",
+    "pricing": { "min": 2500, "max": 4500, "currency": "EUR" },
+    "avgTimeDays": 14,
+    "connectionType": "Email_Concierge"
+  },
+  {
+    "id": "legal-ae-difc-csp",
+    "type": "legal_incorporation",
+    "name": "DIFC Corporate Services Ltd",
+    "regions": ["AE-DIFC"],
+    "description": "Licensed Corporate Service Provider for Prescribed Companies and Foundations.",
+    "pricing": { "min": 1500, "max": 3000, "currency": "USD" },
+    "avgTimeDays": 5,
+    "connectionType": "Portal_Link"
+  },
+  {
+    "id": "legal-uk-companies-house",
+    "type": "legal_incorporation",
+    "name": "UK Formation Agent API",
+    "regions": ["UK"],
+    "description": "Direct Companies House integration for Ltd companies.",
+    "pricing": { "min": 50, "max": 100, "currency": "GBP" },
+    "avgTimeDays": 1,
+    "connectionType": "API"
+  },
+  {
+    "id": "tech-blocksquare",
+    "type": "tokenization_factory",
+    "name": "Blocksquare",
+    "regions": ["Global"],
+    "description": "Real estate tokenization infrastructure.",
+    "connectionType": "API"
+  }
+]

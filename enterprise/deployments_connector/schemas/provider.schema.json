@@ -1,0 +1,22 @@
+
+{
+  "$id": "provider.schema.json",
+  "type": "object",
+  "properties": {
+    "id": { "type": "string" },
+    "name": { "type": "string" },
+    "supportedChains": { "type": "array", "items": { "type": "string" } },
+    "complianceStandard": { "type": "string", "enum": ["ERC-3643", "ERC-1400", "Proprietary"] },
+    "requiredFields": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "key": { "type": "string" },
+          "description": { "type": "string" },
+          "required": { "type": "boolean" }
+        }
+      }
+    }
+  }
+}

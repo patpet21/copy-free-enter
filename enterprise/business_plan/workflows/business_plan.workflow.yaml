@@ -1,0 +1,31 @@
+
+name: Business Plan Generation
+description: Aggregates all project data to generate a master business plan document.
+version: 1.0
+
+inputs:
+  projectId: string
+
+steps:
+  - id: gather_context
+    type: parallel
+    actions:
+      - handler: clientProjects.getProject
+      - handler: spvService.getSpvDesign
+      - handler: valuationService.getValuation
+      - handler: tokenBlueprintService.getBlueprint
+
+  - id: generate_plan
+    type: function
+    handler: businessPlanService.generatePlan
+    params:
+      project: $gather_context.project
+      spv: $gather_context.spv
+      valuation: $gather_context.valuation
+      token: $gather_context.token
+
+  - id: save_plan
+    type: function
+    handler: businessPlanService.savePlan
+    params:
+      plan: $generate_plan.result

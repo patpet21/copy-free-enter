@@ -1,0 +1,9 @@
+
+name: Jurisdiction Update Review
+steps:
+  - id: ingest
+    action: function(ingestLegalUpdate)
+  - id: analyze
+    action: prompt(sync_legal_text)
+  - id: approval
+    action: human_review

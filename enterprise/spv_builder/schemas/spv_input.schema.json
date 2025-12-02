@@ -1,0 +1,38 @@
+{
+  "$id": "spv_input.schema.json",
+  "type": "object",
+  "properties": {
+    "project": {
+      "type": "object",
+      "properties": {
+        "projectId": { "type": "string" },
+        "projectName": { "type": "string" },
+        "assetType": { "type": "string" },
+        "assetCountry": { "type": "string" },
+        "assetCity": { "type": "string" },
+        "targetRaise": { "type": "number" },
+        "investorProfile": { "type": "string", "enum": ["retail", "accredited", "mixed", "institutional"] },
+        "tags": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "jurisdiction": {
+      "type": "object",
+      "properties": {
+        "jurisdictionCode": { "type": "string" },
+        "jurisdictionName": { "type": "string" },
+        "preferredLegalForm": { "type": "string" },
+        "constraints": { "type": "string" }
+      }
+    },
+    "sponsorPreferences": {
+      "type": "object",
+      "properties": {
+        "sponsorEquityTarget": { "type": "string" },
+        "investorVoting": { "type": "string", "enum": ["full", "limited", "none"] },
+        "investorProtectionLevel": { "type": "string", "enum": ["base", "medium", "strong"] },
+        "liquidityPreference": { "type": "string", "enum": ["low", "medium", "high"] }
+      }
+    }
+  },
+  "required": ["project", "jurisdiction"]
+}

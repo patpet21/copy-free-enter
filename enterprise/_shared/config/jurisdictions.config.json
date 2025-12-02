@@ -1,0 +1,79 @@
+[
+  {
+    "code": "US-DE",
+    "name": "United States (Delaware)",
+    "region": "US",
+    "legalForms": ["LLC", "C-Corp", "Series LLC", "Statutory Trust"],
+    "typicalUseCases": ["Venture Capital", "Real Estate Syndication", "Tech Startups", "Token Issuance"],
+    "investorTypesAllowed": ["Accredited", "Institutional", "Retail (Reg A+)"],
+    "restrictions": "Requires Registered Agent. Compliance with SEC Reg D/S/A+. US Tax reporting obligations.",
+    "taxTreatyNetworkSize": 60,
+    "rating": "A"
+  },
+  {
+    "code": "IT",
+    "name": "Italy",
+    "region": "EU",
+    "legalForms": ["S.r.l.", "S.p.A.", "Start-up Innovativa", "PMI Innovativa"],
+    "typicalUseCases": ["Local Real Estate", "Equity Crowdfunding", "Art", "SME Equity"],
+    "investorTypesAllowed": ["Retail", "Accredited", "Institutional"],
+    "restrictions": "Public Notary (Notaio) required for formation. CONSOB rules apply for equity crowdfunding. PEC address mandatory.",
+    "taxTreatyNetworkSize": 100,
+    "rating": "B"
+  },
+  {
+    "code": "MT",
+    "name": "Malta",
+    "region": "EU",
+    "legalForms": ["Private Ltd", "Public Ltd", "Protected Cell Company (PCC)"],
+    "typicalUseCases": ["Crypto Assets", "Gaming", "Trading", "Asset Holding"],
+    "investorTypesAllowed": ["Retail", "Accredited", "Institutional"],
+    "restrictions": "VFA Agent required for crypto assets. Effective tax 5% via refund system. Strict AML.",
+    "taxTreatyNetworkSize": 70,
+    "rating": "A"
+  },
+  {
+    "code": "AE-DIFC",
+    "name": "UAE (DIFC)",
+    "region": "GCC",
+    "legalForms": ["DIFC Company", "SPC", "Foundation", "Prescribed Company"],
+    "typicalUseCases": ["Family Office", "Holding Co", "Fintech", "Tokenization"],
+    "investorTypesAllowed": ["Accredited", "Institutional"],
+    "restrictions": "Common Law framework. Requires CSP. 0% Corporate Tax for qualifying entities. Economic substance rules apply.",
+    "taxTreatyNetworkSize": 90,
+    "rating": "A"
+  },
+  {
+    "code": "AG",
+    "name": "Antigua & Barbuda",
+    "region": "Caribbean",
+    "legalForms": ["IBC", "LLC"],
+    "typicalUseCases": ["International Trade", "Asset Protection", "Digital Assets Business"],
+    "investorTypesAllowed": ["Accredited", "Institutional"],
+    "restrictions": "Economic substance requirements apply. Banking can be slower than onshore jurisdictions.",
+    "taxTreatyNetworkSize": 10,
+    "rating": "B"
+  },
+  {
+    "code": "CH",
+    "name": "Switzerland",
+    "region": "Europe",
+    "legalForms": ["AG", "GmbH", "Swiss Foundation"],
+    "typicalUseCases": ["Crypto Foundation", "Banking", "Privacy", "Deep Tech"],
+    "investorTypesAllowed": ["Accredited", "Institutional"],
+    "restrictions": "High setup costs. Resident Director required. DLT Act compliance for ledger-based securities.",
+    "taxTreatyNetworkSize": 80,
+    "rating": "A"
+  },
+  {
+    "code": "SG",
+    "name": "Singapore",
+    "region": "APAC",
+    "legalForms": ["Private Ltd", "VCC"],
+    "typicalUseCases": ["Fintech HQ", "Asian Market Entry", "Funds", "Token Issuance"],
+    "investorTypesAllowed": ["Accredited", "Institutional"],
+    "restrictions": "Resident Director required. Strict MAS regulations for capital markets services.",
+    "taxTreatyNetworkSize": 85,
+    "rating": "A"
+  }
+]

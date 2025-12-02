@@ -1,0 +1,21 @@
+{
+  "$id": "document_output.schema.json",
+  "type": "object",
+  "properties": {
+    "id": { "type": "string" },
+    "documentType": { "type": "string" },
+    "title": { "type": "string" },
+    "format": { "type": "string", "enum": ["markdown", "html", "pdf"] },
+    "content": { "type": "string" },
+    "metadata": {
+      "type": "object",
+      "properties": {
+        "generatedAt": { "type": "string" },
+        "version": { "type": "number" },
+        "language": { "type": "string" }
+      }
+    },
+    "downloadUrl": { "type": "string" }
+  },
+  "required": ["id", "documentType", "content", "format"]
+}

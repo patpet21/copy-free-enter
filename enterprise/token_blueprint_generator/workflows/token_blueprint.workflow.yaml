@@ -1,0 +1,40 @@
+name: Token Blueprint Generator
+description: Generates a technical and economic blueprint for the security token.
+version: 1.0
+
+inputs:
+  projectId: string
+  spvId: string
+  valuationId: string
+
+steps:
+  - id: load_context
+    type: parallel
+    actions:
+      - id: project
+        handler: clientProjects.getProject
+      - id: spv
+        handler: spvService.getSpvDesign
+      - id: valuation
+        handler: valuationService.getValuation
+
+  - id: generate_blueprint
+    type: function
+    handler: tokenBlueprintService.generateBlueprint
+    params:
+      project: $project.result
+      spv: $spv.result
+      valuation: $valuation.result
+
+  - id: risk_analysis
+    type: function
+    handler: tokenBlueprintService.analyzeRisks
+    params:
+      blueprint: $generate_blueprint.result
+
+  - id: save_result
+    type: function
+    handler: tokenBlueprintService.saveBlueprint
+    params:
+      blueprint: $generate_blueprint.result
+      risks: $risk_analysis.result

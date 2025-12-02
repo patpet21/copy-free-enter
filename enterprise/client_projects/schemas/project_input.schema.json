@@ -1,0 +1,28 @@
+
+{
+  "$id": "project_input.schema.json",
+  "type": "object",
+  "properties": {
+    "projectName": { "type": "string", "minLength": 3 },
+    "assetType": { 
+      "type": "string", 
+      "enum": ["Real Estate", "Business", "Debt", "Art", "Funds", "Other"] 
+    },
+    "location": { "type": "string" },
+    "goal": { 
+      "type": "string", 
+      "enum": ["Liquidity", "Capital Raise", "Community"] 
+    },
+    "targetRaise": { "type": "number", "minimum": 0 },
+    "targetInvestor": { 
+      "type": "string", 
+      "enum": ["Retail", "Accredited", "Institutional"] 
+    },
+    "timeline": { 
+      "type": "string", 
+      "enum": ["ASAP", "3-6 Months", "6-12 Months"] 
+    },
+    "description": { "type": "string" }
+  },
+  "required": ["projectName", "assetType", "location", "goal", "targetRaise"]
+}

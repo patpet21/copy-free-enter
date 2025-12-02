@@ -1,0 +1,37 @@
+{
+  "$id": "token_blueprint_input.schema.json",
+  "type": "object",
+  "properties": {
+    "project": {
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "assetType": { "type": "string" }
+      }
+    },
+    "spvDesign": {
+      "type": "object",
+      "properties": {
+        "legalForm": { "type": "string" },
+        "jurisdiction": { "type": "string" }
+      }
+    },
+    "valuationOutput": {
+      "type": "object",
+      "properties": {
+        "valueCentral": { "type": "number" },
+        "currency": { "type": "string" }
+      }
+    },
+    "preferences": {
+      "type": "object",
+      "properties": {
+        "tokenTypePreference": { "type": "string", "enum": ["security", "revenue_share", "utility", "hybrid"] },
+        "targetTicket": { "type": "number" },
+        "targetInvestorCount": { "type": "number" }
+      }
+    }
+  },
+  "required": ["project", "spvDesign", "valuationOutput"]
+}

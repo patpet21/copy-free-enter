@@ -1,0 +1,4 @@
+Shareholder Name,Role,Class,Shares,Invested Amount,Date
+Founder 1,Founder,Common,1000000,100.00,2023-01-01
+Investor A,Investor,Preferred,50000,50000.00,2023-06-01
+Option Pool,Reserve,Common Options,100000,0.00,2023-01-01

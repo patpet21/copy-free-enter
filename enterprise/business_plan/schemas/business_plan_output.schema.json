@@ -1,0 +1,27 @@
+
+{
+  "$id": "business_plan_output.schema.json",
+  "type": "object",
+  "properties": {
+    "executiveSummary": { "type": "string", "description": "High level overview of the opportunity" },
+    "marketAnalysis": { "type": "string", "description": "Target market, trends, and demand analysis" },
+    "assetAndStrategy": { "type": "string", "description": "Details on the underlying asset and value creation strategy" },
+    "spvAndTokenStructure": { "type": "string", "description": "Legal and technical structuring details" },
+    "goToMarket": { "type": "string", "description": "Distribution, marketing, and sales strategy" },
+    "operationsAndGovernance": { "type": "string", "description": "Management team, governance rights, and operational plan" },
+    "financialPlan": { "type": "string", "description": "Revenue model, projections, and use of funds" },
+    "riskAndMitigation": { "type": "string", "description": "Key risks and mitigation strategies" },
+    "exitStrategy": { "type": "string", "description": "Liquidity events and exit scenarios for investors" }
+  },
+  "required": [
+    "executiveSummary", 
+    "marketAnalysis", 
+    "assetAndStrategy", 
+    "spvAndTokenStructure", 
+    "goToMarket", 
+    "operationsAndGovernance", 
+    "financialPlan", 
+    "riskAndMitigation", 
+    "exitStrategy"
+  ]
+}

@@ -1,0 +1,29 @@
+
+name: Project Onboarding
+description: Validates input, normalizes data via AI, performs initial review, and creates the project entity.
+steps:
+  - id: validate_input
+    type: function
+    handler: validateSchema
+    params: 
+      schema: project_input.schema.json
+  
+  - id: normalize_data
+    type: ai_prompt
+    prompt: project_intake.user.prompt.md
+    input_key: raw_input
+    output_key: normalized_intake
+
+  - id: generate_review
+    type: ai_prompt
+    prompt: project_intake.review.prompt.md
+    input_key: normalized_intake
+    output_key: review_summary
+
+  - id: create_entity
+    type: function
+    handler: projectService.createProject
+    params:
+      intake: $normalized_intake
+      summary: $review_summary
+      status: intake_completed

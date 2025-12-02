@@ -1,0 +1,9 @@
+
+{
+  "type": "object",
+  "properties": {
+    "jurisdiction": { "type": "string" },
+    "rules": { "type": "array" }
+  },
+  "status": "coming_soon"
+}

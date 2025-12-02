@@ -1,0 +1,12 @@
+name: Legal Review Loop
+version: 1.0
+trigger: manual_request
+steps:
+  - id: brief_gen
+    type: prompt
+    source: prompts/design/spv_structure.explain_to_lawyer.prompt.md
+  - id: email_lawyer
+    type: integration
+    service: email_gateway
+  - id: await_feedback
+    type: wait_state

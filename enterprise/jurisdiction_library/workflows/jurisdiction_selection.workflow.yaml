@@ -1,0 +1,40 @@
+
+name: Jurisdiction Selection Pipeline
+description: Analyzes project requirements, suggests jurisdictions, generates summaries, and compares them.
+steps:
+  - id: load_project
+    type: input
+    description: Receives project context from client_projects module.
+
+  - id: suggest_candidates
+    type: function
+    handler: jurisdictionService.suggestJurisdictionsForProject
+    params:
+      project: $project_context
+    output: suggestions_list
+
+  - id: generate_summaries
+    type: map
+    items: $suggestions_list
+    step:
+      type: function
+      handler: jurisdictionService.generateJurisdictionSummary
+      params:
+        project: $project_context
+        jurisdiction: $item.jurisdiction
+    output: summaries
+
+  - id: generate_comparison
+    type: function
+    handler: jurisdictionService.compareJurisdictions
+    params:
+      jurisdictions: $suggestions_list.map(s => s.jurisdiction)
+    output: comparison_markdown
+
+  - id: save_report
+    type: function
+    handler: projectService.updateProject
+    params:
+      jurisdiction_report: 
+        suggestions: $suggestions_list
+        comparison: $comparison_markdown

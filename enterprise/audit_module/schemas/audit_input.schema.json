@@ -1,0 +1,38 @@
+{
+  "$id": "audit_input.schema.json",
+  "type": "object",
+  "properties": {
+    "project": {
+      "type": "object",
+      "description": "Snapshot of project intake data"
+    },
+    "jurisdiction": {
+      "type": "object",
+      "description": "Selected jurisdiction details"
+    },
+    "spvDesign": {
+      "type": "object",
+      "description": "Finalized SPV structure"
+    },
+    "governanceRules": {
+      "type": "object",
+      "description": "Governance configuration"
+    },
+    "valuationOutput": {
+      "type": "object",
+      "description": "Valuation results"
+    },
+    "tokenBlueprint": {
+      "type": "object",
+      "description": "Tokenomics and structure"
+    },
+    "riskFactors": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "description": "Risk factors identified during valuation or other steps"
+      }
+    }
+  },
+  "required": ["project", "jurisdiction", "spvDesign", "tokenBlueprint"]
+}

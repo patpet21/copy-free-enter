@@ -1,0 +1,30 @@
+
+name: Valuation Standard Orchestrator
+description: Standard Automated Valuation Model (AVM) for Real Estate and Business Assets.
+version: 1.0
+
+inputs:
+  projectId: string
+
+steps:
+  - id: load_project
+    type: function
+    handler: clientProjects.getProject
+    params: { id: $inputs.projectId }
+
+  - id: run_valuation_logic
+    type: function
+    handler: valuationService.runValuationWorkflow
+    params:
+      project: $load_project.result
+
+  - id: persist_results
+    type: function
+    handler: clientProjects.updateProject
+    params:
+      projectId: $inputs.projectId
+      valuation_data: $run_valuation_logic.result
+      status: "valuation_done"
+
+output:
+  report: $run_valuation_logic.result

@@ -1,0 +1,48 @@
+{
+  "$id": "valuation_input.schema.json",
+  "type": "object",
+  "description": "Input parameters for running a valuation model on an asset.",
+  "properties": {
+    "projectId": { "type": "string" },
+    "assetType": { 
+      "type": "string",
+      "enum": ["Real Estate", "Business", "Debt", "Art", "Funds", "Other"]
+    },
+    "assetLocation": {
+      "type": "object",
+      "properties": {
+        "country": { "type": "string" },
+        "city": { "type": "string" },
+        "submarket": { "type": "string" }
+      },
+      "required": ["country"]
+    },
+    "economics": {
+      "type": "object",
+      "properties": {
+        "currentRentRoll": { "type": "number", "description": "Gross Annual Income" },
+        "vacancyRate": { "type": "number", "description": "Estimated vacancy % (0-100)" },
+        "operatingExpenses": { "type": "number", "description": "Annual OPEX" },
+        "capexAnnual": { "type": "number", "description": "Reserve for replacement" },
+        "noiReported": { "type": "number", "description": "Net Operating Income provided by client" }
+      }
+    },
+    "context": {
+      "type": "object",
+      "properties": {
+        "marketYieldRange": { 
+          "type": "object", 
+          "properties": { "min": { "type": "number" }, "max": { "type": "number" } }
+        },
+        "leverage": { "type": "boolean", "default": false },
+        "holdingPeriod": { "type": "number", "default": 5, "description": "Years" }
+      }
+    },
+    "dataQuality": {
+      "type": "string",
+      "enum": ["Real", "Estimated"],
+      "description": "Flag indicating if data is verified or AI-inferred"
+    }
+  },
+  "required": ["projectId", "assetType", "assetLocation", "dataQuality"]
+}

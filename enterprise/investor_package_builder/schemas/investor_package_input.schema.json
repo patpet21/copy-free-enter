@@ -1,0 +1,23 @@
+{
+  "$id": "investor_package_input.schema.json",
+  "type": "object",
+  "properties": {
+    "project": {
+      "type": "object",
+      "description": "Basic project details"
+    },
+    "spvDesign": {
+      "type": "object",
+      "description": "Legal structure details"
+    },
+    "valuationOutput": {
+      "type": "object",
+      "description": "Financial results"
+    },
+    "tokenBlueprint": {
+      "type": "object",
+      "description": "Tokenomics details"
+    }
+  },
+  "required": ["project", "spvDesign", "valuationOutput", "tokenBlueprint"]
+}

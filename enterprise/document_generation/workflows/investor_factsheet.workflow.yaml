@@ -1,0 +1,27 @@
+name: Generate Investor Factsheet
+description: Creates a one-page marketing teaser.
+version: 1.0
+
+inputs:
+  projectId: string
+
+steps:
+  - id: gather_data
+    type: parallel
+    actions:
+      - handler: clientProjects.getProject
+      - handler: valuationService.getValuation
+      - handler: tokenBlueprintService.getBlueprint
+
+  - id: generate_doc
+    type: function
+    handler: docMergeService.generateDocument
+    params:
+      docType: investor_factsheet
+      projectContext: $gather_data
+
+  - id: export_pdf
+    type: function
+    handler: pdfGenerator.generatePdfUrl
+    params:
+      content: $generate_doc.contentMarkdown

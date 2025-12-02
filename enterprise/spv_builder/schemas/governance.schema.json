@@ -1,0 +1,26 @@
+{
+  "$id": "governance.schema.json",
+  "type": "object",
+  "properties": {
+    "ordinaryDecisions": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "extraordinaryDecisions": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "quorumRules": { "type": "string" },
+    "boardComposition": {
+      "type": "object",
+      "properties": {
+        "totalSeats": { "type": "number" },
+        "notes": { "type": "string" }
+      }
+    },
+    "investorProtectionClauses": {
+      "type": "array",
+      "items": { "type": "string" }
+    }
+  }
+}

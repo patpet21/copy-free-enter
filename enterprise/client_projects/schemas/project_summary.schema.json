@@ -1,0 +1,15 @@
+
+{
+  "$id": "project_summary.schema.json",
+  "type": "object",
+  "properties": {
+    "executiveSummary": { "type": "string" },
+    "feasibilityScore": { "type": "number", "minimum": 0, "maximum": 100 },
+    "keyRisks": { 
+      "type": "array", 
+      "items": { "type": "string" } 
+    },
+    "recommendedStructure": { "type": "string" }
+  },
+  "required": ["executiveSummary", "feasibilityScore", "keyRisks"]
+}

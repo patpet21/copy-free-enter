@@ -1,0 +1,19 @@
+
+name: Project Review
+description: Re-evaluates project feasibility after updates.
+steps:
+  - id: fetch_project
+    type: function
+    handler: projectService.getProject
+  
+  - id: ai_review
+    type: ai_prompt
+    prompt: project_intake.review.prompt.md
+    input_key: project_data
+    output_key: updated_summary
+
+  - id: update_project
+    type: function
+    handler: projectService.updateProject
+    params:
+      summary: $updated_summary

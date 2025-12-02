@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PropertyDEX Simulator</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+              display: ['Space Grotesk', 'sans-serif'],
+            },
+            colors: {
+              brand: {
+                50: '#f0f9ff',
+                100: '#e0f2fe',
+                200: '#bae6fd',
+                300: '#7dd3fc',
+                400: '#38bdf8',
+                500: '#0ea5e9',
+                600: '#0284c7',
+                700: '#0369a1',
+                800: '#075985',
+                900: '#0c4a6e',
+              }
+            }
+          }
+        }
+      }
+    </script>
+  <script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@18.2.0",
+    "react/jsx-runtime": "https://esm.sh/react@18.2.0/jsx-runtime",
+    "react-dom/client": "https://esm.sh/react-dom@18.2.0/client",
+    "react-dom": "https://esm.sh/react-dom@18.2.0",
+    "@google/generative-ai": "https://esm.sh/@google/generative-ai@0.12.0",
+    "@supabase/supabase-js": "https://esm.sh/@supabase/supabase-js@2.43.4",
+    "lucide-react": "https://esm.sh/lucide-react@0.394.0?external=react",
+    "@tanstack/react-query": "https://esm.sh/@tanstack/react-query@5.40.0?external=react",
+    "viem": "https://esm.sh/viem@2.18.0",
+    "viem/chains": "https://esm.sh/viem@2.18.0/chains",
+    "viem/utils": "https://esm.sh/viem@2.18.0/utils",
+    "viem/accounts": "https://esm.sh/viem@2.18.0/accounts",
+    "viem/actions": "https://esm.sh/viem@2.18.0/actions",
+    "wagmi": "https://esm.sh/wagmi@2.12.0?external=react,@tanstack/react-query,viem",
+    "@reown/appkit/react": "https://esm.sh/@reown/appkit@1.6.0/react?external=react,wagmi,viem,@reown/appkit-adapter-wagmi",
+    "@reown/appkit/networks": "https://esm.sh/@reown/appkit@1.6.0/networks?external=react,wagmi,viem,@reown/appkit-adapter-wagmi",
+    "@reown/appkit-adapter-wagmi": "https://esm.sh/@reown/appkit-adapter-wagmi@1.6.0?external=react,wagmi,viem,@reown/appkit",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "vite": "https://aistudiocdn.com/vite@^7.2.4",
+    "@vitejs/plugin-react": "https://aistudiocdn.com/@vitejs/plugin-react@^5.1.1",
+    "@reown/appkit/": "https://aistudiocdn.com/@reown/appkit@^1.8.14/",
+    "uuid": "https://aistudiocdn.com/uuid@^13.0.0",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.30.0",
+    "path": "https://aistudiocdn.com/path@^0.12.7",
+    "url": "https://aistudiocdn.com/url@^0.11.4"
+  }
+}
+</script>
+</head>
+  <body class="bg-slate-50 text-slate-900 antialiased font-sans">
+    <div id="root"></div>
+  </body>
+</html>

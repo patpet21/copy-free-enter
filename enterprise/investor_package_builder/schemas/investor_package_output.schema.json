@@ -1,0 +1,37 @@
+{
+  "$id": "investor_package_output.schema.json",
+  "type": "object",
+  "properties": {
+    "deckOutline": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "slideTitle": { "type": "string" },
+          "keyPoints": { "type": "array", "items": { "type": "string" } }
+        }
+      }
+    },
+    "narrativeMarkdown": { "type": "string" },
+    "headlines": { 
+        "type": "array", 
+        "items": { "type": "string" } 
+    },
+    "faq": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "question": { "type": "string" },
+          "answer": { "type": "string" },
+          "category": { "type": "string" }
+        }
+      }
+    },
+    "keyMetrics": {
+      "type": "array",
+      "items": { "$ref": "kpi.entity.ts" }
+    }
+  },
+  "required": ["deckOutline", "narrativeMarkdown", "faq", "keyMetrics"]
+}
